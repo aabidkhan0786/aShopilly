@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export default function Home({products}) {
   return (
     <>
@@ -15,6 +17,11 @@ export default function Home({products}) {
         <h5 class="card-title">{prod.name}- <span class="float-right">{prod.price} Rs</span></h5>
         {/* <h5 class="card-title"></h5> */}
         <p class="card-text">{prod.description}</p>
+        <center>
+          <Link href={"/product/[id]"} as={`/product/${prod._id}`} >
+          <a  class="btn btn-outline-dark">Dark</a>
+          </Link>
+        </center>
       </div>
     </div>
   </div>
