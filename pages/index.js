@@ -20,7 +20,7 @@ export default function Home({ products }) {
                       <p className="card-text h5">{prod.description}</p>
                       <center>
                         <Link href={"/product/[id]"} as={`/product/${prod._id}`} >
-                          <a className="btn btn-outline-dark my-2">View Product</a>
+                          <a className="btn btn-outline-primary my-2">View Product</a>
                         </Link>
                       </center>
                     </div>

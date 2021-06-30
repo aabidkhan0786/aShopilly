@@ -1,12 +1,31 @@
 import {useState} from "react"
+import baseUrl from "../database/baseUrl";
 const create = () => {
     const [name,setName] = useState('');
     const [price,setPrice] = useState('');
     const [desc,setDesc] = useState('');
     const [media,setMedia] = useState('');
 
-    const handleCreate=()=>{
+    const handleCreate= async ()=>{
         console.log(name,price,desc,media);
+        if(!name || ! desc || !media || !price){
+            return alert("Plaese add feolds")
+        }
+
+        const res = await fetch(`${baseUrl}/api/product`,{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                name,
+                price,
+                description:desc,
+                media
+            })
+        })
+
+        const response = await res.json()
     }
     return (
         <>
