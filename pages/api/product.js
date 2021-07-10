@@ -24,13 +24,13 @@ const getAllProducts= async(req,res)=>{
 }
 
 const saveProducts =  async (req,res)=>{
-    const {name,price,description,media} = req.body
+    const {name,price,description,mediaUrl} = req.body
 
     const prod = new Product({
         name,
         price,
         description,
-        media
+        mediaUrl
     }).save()
     res.status(201).json(prod)
 }

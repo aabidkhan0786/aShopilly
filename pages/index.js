@@ -5,7 +5,7 @@ export default function Home({ products }) {
   return (
     <>
       <div className="row-fluid ">
-        <div className="col-12 d-flex flex-row bd-highlight">
+        <div className="col-12 d-flex bd-highlight">
           {/* style={{"max-width": "18rem"}} */}
           {
             products.map((prod) => (

@@ -6,11 +6,14 @@ const create = () => {
     const [desc,setDesc] = useState('');
     const [media,setMedia] = useState('');
 
-    const handleCreate= async ()=>{
-        console.log(name,price,desc,media);
+    const handleCreate= async (e)=>{
+            e.preventDefault()
+            console.log(name,price,desc,media);
         if(!name || ! desc || !media || !price){
-            return alert("Plaese add feolds")
-        }
+                return alert("Plaese add feolds")
+            }
+            const mediaUrl = await imageUpload()
+
 
         const res = await fetch(`${baseUrl}/api/product`,{
             method:"POST",
@@ -21,11 +24,31 @@ const create = () => {
                 name,
                 price,
                 description:desc,
-                media
+                mediaUrl
             })
         })
 
-        const response = await res.json()
+        const response = await res.json
+        if(response.error){
+            alert(error)
+        }else{
+            alert("prodcut added")
+        }
+    }
+
+    const imageUpload = async ()=>{
+        const data = new FormData()
+        data.append("file", media)
+        data.append("upload_preset","aShoppilly")
+        data.append("cloud_name","asocials")
+        const res = await fetch("https://api.cloudinary.com/v1_1/asocials/image/upload",{
+            method:"POST",
+            body:data
+        })
+
+        const result = await res.json()
+        console.log(result.url);
+        return result.url
     }
     return (
         <>
@@ -36,18 +59,18 @@ const create = () => {
                     {/* <label class="form-label mt-4 h4">Create New Product</label> */}
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="floatingInput" onChange={e=>setName(e.target.value)} placeholder="name@example.com"/>
-                        <label for="floatingInput" class="h5">Product Name</label>
+                        <label for="floatingInput" class="h6">Product Name</label>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="floatingInput" onChange={e=>setPrice(e.target.value)} placeholder="name@example.com"/>
-                        <label for="floatingInput" class="h5">Price</label>
+                        <label for="floatingInput" class="h6">Price</label>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="floatingInput" onChange={e=>setDesc(e.target.value)} placeholder="name@example.com"/>
-                        <label for="floatingInput " class="h5">Description</label>
+                        <label for="floatingInput " class="h6">Description</label>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="formFile" class="form-label mt-4 " class="h5">Select Product Image</label>
+                        <label for="formFile" class="form-label mt-4 " class="h6">Select Product Image</label>
                         <input class="form-control" type="file" id="formFile" onChange={e=>setMedia(e.target.files[0])} accept="image/*"/>
                     </div>
                     {
@@ -58,7 +81,7 @@ const create = () => {
                         </>:""
                     }
                     </div>
-                    <button class="btn btn-lg btn-primary my-4 col-12 text-uppercase" onClick={handleCreate()} type="button">add Product</button>
+                    <button class="btn btn-lg btn-primary my-4 col-12 text-uppercase" onClick={e=>handleCreate(e)} type="button">add Product</button>
                 </div>
             </div>
         </>
