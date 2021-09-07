@@ -69,19 +69,19 @@ const create = () => {
                         <input type="text" class="form-control" id="floatingInput" onChange={e=>setDesc(e.target.value)} placeholder="name@example.com"/>
                         <label for="floatingInput " class="h6">Description</label>
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="form-group mb-2">
                         <label for="formFile" class="form-label mt-4 " class="h6">Select Product Image</label>
                         <input class="form-control" type="file" id="formFile" onChange={e=>setMedia(e.target.files[0])} accept="image/*"/>
                     </div>
                     {
                         media ?
                         <>
-                        <h3>Product Preview</h3>
+                        <h3 className="text-center my-3">Product Preview:</h3>
                         <img class="img-fluid" src={media?URL.createObjectURL(media):""}/>
                         </>:""
                     }
                     </div>
-                    <button class="btn btn-lg btn-primary my-4 col-12 text-uppercase" onClick={e=>handleCreate(e)} type="button">add Product</button>
+                    <button class="btn btn-lg btn-primary mb-3 col-12 text-uppercase" onClick={e=>handleCreate(e)} type="button">add Product</button>
                 </div>
             </div>
         </>

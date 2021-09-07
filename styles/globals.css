@@ -19,8 +19,12 @@ a {
 
 .card-body{
   /* background-color: red; */
-  min-height:80%;
+  /* min-height:80%; */
 }
+
+/* .card{
+  height:300px;
+} */
 
 .no_border{
   border: none;

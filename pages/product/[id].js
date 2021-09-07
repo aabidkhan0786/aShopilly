@@ -1,17 +1,17 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import baseUrl from '../../database/baseUrl'
 
 const productId = ({ product }) => {
-    const [quantity,setQuantity] = useState(1)
-    const [modal,setModal] = useState(false)
+    const [quantity, setQuantity] = useState(1)
+    const [modal, setModal] = useState(false)
 
-    const increaseQuantity=()=>{
-        setQuantity(quantity+1);
+    const increaseQuantity = () => {
+        setQuantity(quantity + 1);
     }
-    const decreaseQuantity=()=>{
-        if(quantity >1){
-            setQuantity(quantity-1);
-        }else{
+    const decreaseQuantity = () => {
+        if (quantity > 1) {
+            setQuantity(quantity - 1);
+        } else {
             setQuantity(1);
         }
     }
@@ -19,7 +19,7 @@ const productId = ({ product }) => {
 
     return (
         <>
-        {/* <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Delete</button>      
+            {/* <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Delete</button>      
              <>         
         <div class="modal" style={{zIndex:"10"}}  id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -41,7 +41,7 @@ const productId = ({ product }) => {
   </div>
 </div>
             </> */}
-        
+
             <div class="row-fluid mt-5">
                 <div class="col-12 col-md-8 mx-auto ">
                     <div class="card mb-3 shadow-lg mb-5 bg-white rounded">
@@ -54,15 +54,15 @@ const productId = ({ product }) => {
                                     <h5 class="card-title h4">{product.name}</h5>
                                     <p class="card-text h5">{product.description}</p>
                                     <p class="card-text h4">Rs {product.price}</p>
-                                     {/* <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>  */}
+                                    {/* <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>  */}
 
                                 </div>
                                 <div class="card-footer ">
                                     <center>
                                         <div class="btn-group " role="group" aria-label="Basic example">
-                                            <button type="button" class="btn btn-outline-danger no_border" onClick={()=>decreaseQuantity()} ><i class="fas fa-minus"></i></button>
-                                            <input type="text" class="btn btn-secondary" value={quantity} onChange={e=>setQuantity(e.target.value)}></input>
-                                            <button type="button" class="btn btn-outline-warning no_border" onClick={()=>increaseQuantity()}><i class="fas fa-plus"></i></button>
+                                            <button type="button" class="btn btn-outline-danger no_border" onClick={() => decreaseQuantity()} ><i class="fas fa-minus"></i></button>
+                                            <input type="text" class="btn btn-secondary" value={quantity} onChange={e => setQuantity(e.target.value)}></input>
+                                            <button type="button" class="btn btn-outline-warning no_border" onClick={() => increaseQuantity()}><i class="fas fa-plus"></i></button>
                                         </div>
                                     </center>
                                 </div>

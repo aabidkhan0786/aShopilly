@@ -4,8 +4,6 @@ import Product from "../../models/Product";
 
 initDB()
 
-
-
 export default async(req,res)=>{
    switch(req.method){
        case "GET":
