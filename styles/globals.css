@@ -17,14 +17,6 @@ a {
 }
 
 
-.card-body{
-  /* background-color: red; */
-  /* min-height:80%; */
-}
-
-/* .card{
-  height:300px;
-} */
 
 .no_border{
   border: none;
@@ -32,13 +24,34 @@ a {
 }
 
 .center_card{
+  width:100vw;
+  /* height:85vh; */
   display: flex;
   justify-content: center;
   place-items: center;
   background-color: aqua;
 }
 
+.parent_div{
+  height:84vh;
+  display: flex;
+  justify-content: center;
+  place-items: center;
+  /* background-color: aqua; */
+}
+
+.child_div{
+  width:55vw;
+  height:65vh;
+  /* background-color: red; */
+
+}
+
 .full_height{
   height:100vh;
   width:100vw
+}
+
+.card-footer{
+
 }

@@ -50,14 +50,14 @@ const productId = ({ product }) => {
                                 <img src={product.mediaUrl} class="card-img img-fluid" alt={product.name} />
                             </div>
                             <div class="col-md-8">
-                                <div class="card-body">
+                                <div class="card-body h-75">
                                     <h5 class="card-title h4">{product.name}</h5>
                                     <p class="card-text h5">{product.description}</p>
                                     <p class="card-text h4">Rs {product.price}</p>
                                     {/* <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>  */}
 
                                 </div>
-                                <div class="card-footer ">
+                                <div class="card-footer">
                                     <center>
                                         <div class="btn-group " role="group" aria-label="Basic example">
                                             <button type="button" class="btn btn-outline-danger no_border" onClick={() => decreaseQuantity()} ><i class="fas fa-minus"></i></button>
